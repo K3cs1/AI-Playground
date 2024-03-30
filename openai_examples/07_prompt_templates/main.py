@@ -8,14 +8,14 @@ client = OpenAI()
 Prompt templates are customizable prompt strings with placeholders for variables.
 """
 
-assistant_type = promptlayer.prompts.get('assistant_type')
+assistant_type = promptlayer.prompts.get('assistant_type_2')
 
 # You can also optionally pass version to get an older version of a prompt.
 # By default, the newest version of a prompt is returned.
 # assistant_type = promptlayer.prompts.get('assistant_type', version=1)
 
 variables = {
-    'type': 'english'
+    'type': 'math'
 }
 
 assistant_type_template = assistant_type['messages'][0]['prompt']['template']
@@ -37,7 +37,7 @@ print(answer)
 # Associate request with a prompt template
 promptlayer.track.prompt(
     request_id=pl_request_id,
-    prompt_name='assistant_type',
+    prompt_name='assistant_type_2',
     prompt_input_variables=variables
 )
 
