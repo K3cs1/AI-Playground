@@ -1,12 +1,11 @@
-import os
-import openai
+from openai import OpenAI
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+client = OpenAI()
 
 with open('./code.py', 'r') as file:
     code_content = file.read()
 
-response = openai.ChatCompletion.create(
+response = client.chat.completions.create(
     model='gpt-3.5-turbo',
     messages=[
         {'role': 'system',

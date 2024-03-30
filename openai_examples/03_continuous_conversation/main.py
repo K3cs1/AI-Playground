@@ -1,7 +1,6 @@
-import os
-import openai
+from openai import OpenAI
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+client = OpenAI()
 
 """
 Bucky: Hi grandma!
@@ -18,7 +17,7 @@ while True:
     # Add the user message to the conversation history
     messages.append({'role': 'user', 'content': user_text})
 
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model='gpt-3.5-turbo',
         messages=messages,
         temperature=0.5,
